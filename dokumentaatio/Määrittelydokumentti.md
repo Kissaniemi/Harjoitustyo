@@ -13,7 +13,7 @@ Vertaisarviointi mahdollista muille Python-projekteille, joissa käytetty kieli 
 
 ## Harjoitustyön aihe ja vaatimusmäärittely
 
-Harjoiustyön aihe on kurssin valmiista aihe-ehdotuksista valittu MiniMax-algoritmi Connect4/Neljän suora-pelille.
+Harjoitustyön aihe on kurssin valmiista aihe-ehdotuksista valittu MiniMax-algoritmi Connect4/Neljän suora-pelille.
 Vaatimusmäärittely perustuu täysin valmiiksi annettuun määrittelyyn.
 
 Ohjelman ydin on minimax-algoritmi joka generoi mahdollisimman hyvän siirron. Algoritmia tehostetaan alpha-beta-karsinnalla ja iteratiivisella syvenemisellä.
