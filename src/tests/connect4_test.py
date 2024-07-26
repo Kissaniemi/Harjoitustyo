@@ -40,30 +40,42 @@ class TestConnect4(unittest.TestCase):
     def test_no_winner_blank(self):
         """tests that the find_winner function doesn't return a winner when there is a blank board"""
         game = Connect4()
-        self.assertEqual(game.find_winner(), None)
+        self.assertEqual(game.find_winner([
+                 [0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0], 
+                 [0,0,0,0,0,0,0]]), None)
 
     
     def test_no_winner_3in_line(self):
         """tests that the find_winner function doesn't return a winner when there is less than 4 (3) in a row"""
-        game = Connect4([
-                 [0,0,0,0,0,0,0],
-                 [0,0,0,0,0,0,0],
-                 [0,0,0,0,0,0,0],
-                 [0,0,0,1,0,0,0],
-                 [0,0,0,1,0,0,0], 
-                 [0,0,0,1,0,0,0]])
-        self.assertEqual(game.find_winner(), None)
+        game = Connect4(
+            [[0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,1,0,0,0],
+            [0,0,0,1,0,0,0], 
+            [0,0,0,1,0,0,0]])
+        self.assertEqual(game.find_winner(
+            [[0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,1,0,0,0],
+            [0,0,0,1,0,0,0], 
+            [0,0,0,1,0,0,0]]), None)
 
     def test_winner_vertical(self):
         """tests that the find_winner function returns winner when there is 4 in a row (vertical)"""
-        game = Connect4([
-                 [0,0,0,0,0,0,0],
-                 [0,0,0,0,0,0,0],
-                 [0,0,0,1,0,0,0],
-                 [0,0,0,1,0,0,0],
-                 [0,0,0,1,0,0,0], 
-                 [0,0,0,1,0,0,0]])
-        self.assertEqual(game.find_winner(), 1)
+        game = Connect4()
+        self.assertEqual(game.find_winner(
+            [[0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,1,0,0,0],
+            [0,0,0,1,0,0,0],
+            [0,0,0,1,0,0,0], 
+            [0,0,0,1,0,0,0]]), 1)
 
     def test_winner_horizontal(self):
         """tests that the find_winner function returns winner when there is 4 in a row (horizontal)"""
@@ -74,7 +86,13 @@ class TestConnect4(unittest.TestCase):
                  [0,0,0,0,0,0,0],
                  [0,0,0,0,0,0,0], 
                  [0,0,1,1,1,1,0]])
-        self.assertEqual(game.find_winner(), 1)
+        self.assertEqual(game.find_winner([
+                 [0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0], 
+                 [0,0,1,1,1,1,0]]), 1)
 
     def test_winner_diagonal(self):
         """tests that the find_winner function returns winner when there is 4 in a row (diagonal)"""
@@ -86,7 +104,13 @@ class TestConnect4(unittest.TestCase):
                  [0,0,2,0,0,0,0], 
                  [0,2,0,0,0,0,0]])
         
-        self.assertEqual(game.find_winner(), 2)
+        self.assertEqual(game.find_winner([
+                 [0,0,0,0,0,0,0],
+                 [0,0,0,0,0,1,0],
+                 [0,0,0,0,2,0,0],
+                 [0,0,0,2,0,0,0],
+                 [0,0,2,0,0,0,0], 
+                 [0,2,0,0,0,0,0]]), 2)
 
 
     def test_winner_horizontal(self):
@@ -98,7 +122,13 @@ class TestConnect4(unittest.TestCase):
                  [0,0,0,0,0,0,0],
                  [0,0,0,1,0,0,0], 
                  [0,0,1,2,0,0,0]])
-        self.assertEqual(game.find_winner(), None)
+        self.assertEqual(game.find_winner([
+                 [0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0],
+                 [0,0,0,1,0,0,0], 
+                 [0,0,1,2,0,0,0]]), None)
 
     def test_piece_drop(self):
         """tests that the add_piece function works"""
@@ -111,11 +141,3 @@ class TestConnect4(unittest.TestCase):
                  [0,0,0,0,0,0,0],
                  [0,0,0,0,0,0,0], 
                  [0,0,0,2,0,0,0]])
-
-        
-
-        
-
-        
-        
-        
